@@ -76,7 +76,7 @@ impl KillingForm {
     /// Check symmetry: B(X,Y) = B(Y,X).
     pub fn verify_symmetry(&self, basis: &[LieAlgebraElement]) -> bool {
         let mat = self.matrix(basis);
-        (mat - mat.transpose()).norm() < 1e-8
+        (mat.clone() - mat.transpose()).norm() < 1e-8
     }
 
     /// Check invariance: B([Z,X],Y) + B(X,[Z,Y]) = 0.

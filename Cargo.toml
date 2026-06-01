@@ -1,5 +1,6 @@
 [package]
 name = "lau-lie-group-agents"
+repository = "https://github.com/SuperInstance/lau-lie-group-agents"
 version = "0.1.0"
 edition = "2021"
 description = "Lie group theory for agents: SO(n), SU(n), GL(n), Sp(2n), SE(3), Lie algebras, exponential map, BCH, adjoint representation, structure constants, Killing form, root systems, Peter-Weyl"

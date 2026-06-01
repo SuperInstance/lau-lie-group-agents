@@ -182,8 +182,8 @@ mod tests {
         let approx1 = crate::exponential_map::matrix_exp(&bch1.matrix);
         let approx3 = crate::exponential_map::matrix_exp(&bch3.matrix);
 
-        let err1 = (exact - approx1).norm();
-        let err3 = (exact - approx3).norm();
+        let err1 = (exact.clone() - &approx1).norm();
+        let err3 = (exact - &approx3).norm();
         assert!(err3 <= err1 + 1e-10);
     }
 

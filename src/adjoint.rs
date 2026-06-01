@@ -63,7 +63,7 @@ impl AdjointRep {
                 let dot = (&ad_g_ej.matrix.component_mul(&e.matrix)).sum();
                 let norm_sq = (&e.matrix.component_mul(&e.matrix)).sum();
                 if norm_sq.abs() > 1e-10 { dot / norm_sq } else { 0.0 }
-            }).collect::<Vec<_>>().into_iter().fold(
+            }).zip(basis.iter()).fold(
                 DMatrix::zeros(self.n, self.n),
                 |acc, (coeff, e): (f64, &LieAlgebraElement)| acc + e.matrix.scale(coeff),
             );
@@ -135,7 +135,7 @@ mod tests {
     fn test_trace_ad_semisimple() {
         let x = SoAlgebra::basis_element(3, 0, 1);
         let basis = SoAlgebra::basis(3);
-        let trace = AdjointRep::new(3).trace_ad(&x, &basis);
+        let trace = AdjointRep::trace_ad(&x, &basis);
         assert!(trace.abs() < 1e-8);
     }
 
