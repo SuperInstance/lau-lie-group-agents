@@ -1,1 +1,22 @@
-/target\nCargo.lock\n*.swp
+# Rust
+/target
+target/
+**/target/
+Cargo.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Misc
+*.log
+.env
